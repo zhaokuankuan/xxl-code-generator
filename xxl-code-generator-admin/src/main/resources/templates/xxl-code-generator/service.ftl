@@ -2,8 +2,8 @@ import java.util.Map;
 
 /**
 * ${classInfo.classComment}
-*
-* Created by xuxueli on '${.now?string('yyyy-MM-dd HH:mm:ss')}'.
+* Created  by Mr.kk
+* DateTime on ${.now?string('yyyy-MM-dd HH:mm:ss')}
 */
 public interface ${classInfo.className}Service {
 

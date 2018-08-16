@@ -10,11 +10,11 @@ import java.util.Map;
 
 /**
 * ${classInfo.classComment}
-*
-* Created by xuxueli on '${.now?string('yyyy-MM-dd HH:mm:ss')}'.
+* Created  by Mr.kk
+* DateTime on ${.now?string('yyyy-MM-dd HH:mm:ss')}
 */
 @Controller
-public class ConfController {
+public class ${classInfo.className}Controller {
 
     @Resource
     private ${classInfo.className}Service ${classInfo.className?uncap_first}Service;

@@ -8,8 +8,8 @@ import java.util.Map;
 
 /**
 * ${classInfo.classComment}
-*
-* Created by xuxueli on '${.now?string('yyyy-MM-dd HH:mm:ss')}'.
+* Created  by Mr.kk
+* DateTime on ${.now?string('yyyy-MM-dd HH:mm:ss')}
 */
 @Service
 public class ${classInfo.className}ServiceImpl implements ${classInfo.className}Service {
@@ -63,15 +63,12 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	*/
 	@Override
 	public Map<String,Object> pageList(int offset, int pagesize) {
-
 		List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize);
 		int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize);
-
-		// result
+		// 分页查询的数据的返回
 		Map<String, Object> result = new HashMap<String, Object>();
-		maps.put("pageList", pageList);
-		maps.put("totalCount", totalCount);
-
+		result.put("pageList", pageList);
+		result.put("totalCount", totalCount);
 		return result;
 	}
 
