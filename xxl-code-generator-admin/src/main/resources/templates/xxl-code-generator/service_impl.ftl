@@ -22,14 +22,11 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
     */
 	@Override
 	public ReturnT<String> insert(${classInfo.className} ${classInfo.className?uncap_first}) {
-
-		// valid
-		if (${classInfo.className?uncap_first} == null) {
-			return new ReturnT<String>(ReturnT.FAIL_CODE, "必要参数缺失");
-        }
-
-		${classInfo.className?uncap_first}Dao.insert(${classInfo.className?uncap_first});
-        return ReturnT.SUCCESS;
+	  if (${classInfo.className?uncap_first} == null) {
+	    return new ReturnT<String>(ReturnT.FAIL_CODE, "必要参数缺失");
+	  }
+	  ${classInfo.className?uncap_first}Dao.insert(${classInfo.className?uncap_first});
+	  return ReturnT.SUCCESS;
 	}
 
 	/**
@@ -37,8 +34,8 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	*/
 	@Override
 	public ReturnT<String> delete(int id) {
-		int ret = ${classInfo.className?uncap_first}Dao.delete(id);
-		return ret>0?ReturnT.SUCCESS:ReturnT.FAIL;
+	  int ret = ${classInfo.className?uncap_first}Dao.delete(id);
+	  return ret>0?ReturnT.SUCCESS:ReturnT.FAIL;
 	}
 
 	/**
@@ -46,16 +43,16 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	*/
 	@Override
 	public ReturnT<String> update(${classInfo.className} ${classInfo.className?uncap_first}) {
-		int ret = ${classInfo.className?uncap_first}Dao.update(${classInfo.className?uncap_first});
-		return ret>0?ReturnT.SUCCESS:ReturnT.FAIL;
+	  int ret = ${classInfo.className?uncap_first}Dao.update(${classInfo.className?uncap_first});
+	  return ret>0?ReturnT.SUCCESS:ReturnT.FAIL;
 	}
 
 	/**
-	* Load查询
+	* 根据Id查询
 	*/
 	@Override
 	public ${classInfo.className} load(int id) {
-		return ${classInfo.className?uncap_first}Dao.load(id);
+	  return ${classInfo.className?uncap_first}Dao.load(id);
 	}
 
 	/**
@@ -63,13 +60,13 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	*/
 	@Override
 	public Map<String,Object> pageList(int offset, int pagesize) {
-		List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize);
-		int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize);
-		// 分页查询的数据的返回
-		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("pageList", pageList);
-		result.put("totalCount", totalCount);
-		return result;
+	  List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize);
+	  int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize);
+	  // 分页查询的数据的返回
+	  Map<String, Object> result = new HashMap<String, Object>();
+	  result.put("pageList", pageList);
+	  result.put("totalCount", totalCount);
+	  return result;
 	}
 
 }

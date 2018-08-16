@@ -16,7 +16,8 @@ import java.util.Date;
 * DateTime on ${.now?string('yyyy-MM-dd HH:mm:ss')}
 */
 public class ${classInfo.className} implements Serializable {
-    private static final long serialVersionUID = 42L;
+
+    private static final long serialVersionUID = 1L;
 
 <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
 <#list classInfo.fieldList as fieldItem >
@@ -31,11 +32,11 @@ public class ${classInfo.className} implements Serializable {
 <#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
 <#list classInfo.fieldList as fieldItem>
     public ${fieldItem.fieldClass} get${fieldItem.fieldName?cap_first}() {
-        return ${fieldItem.fieldName};
+      return ${fieldItem.fieldName};
     }
 
     public void set${fieldItem.fieldName?cap_first}(${fieldItem.fieldClass} ${fieldItem.fieldName}) {
-        this.${fieldItem.fieldName} = ${fieldItem.fieldName};
+      this.${fieldItem.fieldName} = ${fieldItem.fieldName};
     }
 
 </#list>

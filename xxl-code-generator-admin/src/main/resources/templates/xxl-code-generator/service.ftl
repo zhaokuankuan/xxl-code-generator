@@ -23,7 +23,7 @@ public interface ${classInfo.className}Service {
     public ReturnT<String> update(${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
-    * Load查询
+    * 根据Id查询
     */
     public ${classInfo.className} load(int id);
 
