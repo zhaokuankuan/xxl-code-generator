@@ -109,7 +109,7 @@ public class TableParseUtil {
                     } else if (columnLine.startsWith("double")) {
                         fieldClass = Double.TYPE.getSimpleName();
                     } else if (columnLine.startsWith("datetime") || columnLine.startsWith("timestamp")) {
-                        fieldClass = Date.class.getSimpleName();
+                        fieldClass = String.class.getSimpleName();
                     } else if (columnLine.startsWith("varchar") || columnLine.startsWith("text")) {
                         fieldClass = String.class.getSimpleName();
                     } else if (columnLine.startsWith("decimal")) {

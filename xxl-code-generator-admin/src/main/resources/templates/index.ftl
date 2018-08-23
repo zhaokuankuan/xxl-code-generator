@@ -31,7 +31,7 @@
                         <#-- 表结构 -->
                         <div class="box box-default">
                             <div class="box-header with-border">
-                                <h4 class="pull-left">表结构信息</h4>
+                                <h4 class="pull-left">表结构信息(格式如下)</h4>
                                 <button type="button" class="btn btn-default btn-xs pull-right" id="codeGenerate" >生成代码</button>
                             </div>
                             <div class="box-body">
@@ -39,12 +39,13 @@
                                     <li>
                                         <small class="text-muted" >
                                             <textarea id="tableSql" placeholder="请输入表结构信息..." >
-                                                CREATE TABLE `userinfo` (
-                                                  `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
-                                                  `username` varchar(255) NOT NULL COMMENT '用户名',
-                                                  `addtime` datetime NOT NULL COMMENT '创建时间',
-                                                  PRIMARY KEY (`user_id`)
-                                                ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息'
+                                              CREATE TABLE `order_table` (
+                                               `id` varchar(20) NOT NULL  COMMENT '主键',
+                                               `user_id` int(11) NOT NULL COMMENT '用户ID',
+                                               `username` varchar(255) NOT NULL COMMENT '用户名',
+                                               `addtime` datetime NOT NULL COMMENT '创建时间',
+                                               PRIMARY KEY (`id`)
+                                             ) ENGINE=InnoDB CHARSET=utf8 COMMENT='订单信息'
                                             </textarea>
                                         </small>
                                     </li>

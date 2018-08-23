@@ -39,7 +39,6 @@ public class IndexController {
     public ReturnT<Map<String, String>> codeGenerate(String tableSql) {
 
         try {
-
             if (StringUtils.isBlank(tableSql)) {
                 return new ReturnT<Map<String, String>>(ReturnT.FAIL_CODE, "表结构信息不可为空");
             }

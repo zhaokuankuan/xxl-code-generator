@@ -51,16 +51,24 @@
 
     <update id="update" parameterType="java.util.Map" >
         UPDATE ${classInfo.tableName}
-        SET
         <#list classInfo.fieldList as fieldItem >
-        <#if fieldItem.columnName != "Id" && fieldItem.columnName != "AddTime" && fieldItem.columnName != "UpdateTime" >
-            ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"},
+        <#if fieldItem.columnName != "id" && fieldItem.columnName != "AddTime" && fieldItem.columnName != "UpdateTime" >
+        <set>
+            <if test="${classInfo.className?uncap_first}.${fieldItem.fieldName} != null and ${classInfo.className?uncap_first}.${fieldItem.fieldName} != '' " >
+                ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"},
+            </if>
+        </set>
         </#if>
         </#list>
-            UpdateTime = NOW()
         WHERE `id` = ${r"#{"}${classInfo.className?uncap_first}.id${r"}"}
     </update>
 
+
+    <select id="getAll" resultMap="${classInfo.className}">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM ${classInfo.tableName}
+    </select>
 
     <select id="load" parameterType="java.util.Map" resultMap="${classInfo.className}">
         SELECT <include refid="Base_Column_List" />

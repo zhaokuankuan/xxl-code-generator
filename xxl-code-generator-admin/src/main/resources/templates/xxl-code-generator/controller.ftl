@@ -22,20 +22,23 @@ public class ${classInfo.className}Controller {
     private ${classInfo.className}Service ${classInfo.className?uncap_first}Service;
 
     /**
-    * 新增
+    * 新增或修改
     */
-    @ApiOperation(value = "insert",notes = "新增")
-    @RequestMapping("/insert",method = {RequestMethod.GET,RequestMethod.POST})
-    public ReturnT<String> insert(${classInfo.className} ${classInfo.className?uncap_first}){
-      return ${classInfo.className?uncap_first}Service.insert(${classInfo.className?uncap_first});
+    @ApiOperation(value = "insertOrUpdate",notes = "新增或修改")
+    @RequestMapping(value="/${classInfo.className?uncap_first}/insertOrUpdate",method = {RequestMethod.GET,RequestMethod.POST})
+    public ReturnModel insertOrUpdate(${classInfo.className} ${classInfo.className?uncap_first}){
+      if(null == ${classInfo.className?uncap_first}){
+        ${classInfo.className?uncap_first} = new ${classInfo.className}();
+      }
+      return ${classInfo.className?uncap_first}Service.insertOrUpdate(${classInfo.className?uncap_first});
     }
 
     /**
     * 新增
     */
     @ApiOperation(value = "insert",notes = "新增")
-    @RequestMapping("/insert",method = {RequestMethod.GET,RequestMethod.POST})
-    public ReturnT<String> insert(${classInfo.className} ${classInfo.className?uncap_first}){
+    @RequestMapping(value="/${classInfo.className?uncap_first}/insert",method = {RequestMethod.GET,RequestMethod.POST})
+    public ReturnModel insert(${classInfo.className} ${classInfo.className?uncap_first}){
       return ${classInfo.className?uncap_first}Service.insert(${classInfo.className?uncap_first});
     }
 
@@ -43,8 +46,8 @@ public class ${classInfo.className}Controller {
     * 删除
     */
     @ApiOperation(value = "delete",notes = "删除")
-    @RequestMapping("/delete",method = {RequestMethod.GET,RequestMethod.POST})
-    public ReturnT<String> delete(int id){
+    @RequestMapping(value="/${classInfo.className?uncap_first}/delete",method = {RequestMethod.GET,RequestMethod.POST})
+    public ReturnModel delete(String id){
       return ${classInfo.className?uncap_first}Service.delete(id);
     }
 
@@ -52,25 +55,34 @@ public class ${classInfo.className}Controller {
     * 修改
     */
     @ApiOperation(value = "update",notes = "修改")
-    @RequestMapping("/update",method = {RequestMethod.GET,RequestMethod.POST})
-    public ReturnT<String> update(${classInfo.className} ${classInfo.className?uncap_first}){
+    @RequestMapping(value="/${classInfo.className?uncap_first}/update",method = {RequestMethod.GET,RequestMethod.POST})
+    public ReturnModel update(${classInfo.className} ${classInfo.className?uncap_first}){
       return ${classInfo.className?uncap_first}Service.update(${classInfo.className?uncap_first});
     }
 
     /**
     * 根据Id查询
     */
-    @ApiOperation(value = "load",notes = "根据Id查询")
-    @RequestMapping("/load",method = {RequestMethod.GET,RequestMethod.POST})
-    public ${classInfo.className} load(int id){
+    @ApiOperation(value = "getById",notes = "根据Id查询")
+    @RequestMapping(value="/${classInfo.className?uncap_first}/getById",method = {RequestMethod.GET,RequestMethod.POST})
+    public ReturnModel load(String id){
       return ${classInfo.className?uncap_first}Service.load(id);
+    }
+
+    /**
+    * 全部查询
+    */
+    @ApiOperation(value = "getAll",notes = "全部查询")
+    @RequestMapping(value="/${classInfo.className?uncap_first}/getAll",method = {RequestMethod.GET,RequestMethod.POST})
+    public List<${classInfo.className}> getAll(){
+      return ${classInfo.className?uncap_first}Service.getAll();
     }
 
     /**
     * 分页查询
     */
-    @ApiOperation(value = "pageList",notes = "分页查询")
-    @RequestMapping("/pageList",method = {RequestMethod.GET,RequestMethod.POST})
+    @ApiOperation(value = "getByPageList",notes = "分页查询")
+    @RequestMapping(value="/${classInfo.className?uncap_first}/getByPageList",method = {RequestMethod.GET,RequestMethod.POST})
     public Map<String, Object> pageList(@RequestParam(required = false, defaultValue = "0") int offset,
                                         @RequestParam(required = false, defaultValue = "10") int pagesize) {
       return ${classInfo.className?uncap_first}Service.pageList(offset, pagesize);

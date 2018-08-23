@@ -18,7 +18,7 @@ public interface ${classInfo.className}Dao {
     /**
     * 删除
     */
-    public int delete(@Param("id") int id);
+    public int delete(@Param("id") String id);
 
     /**
     * 更新
@@ -28,7 +28,13 @@ public interface ${classInfo.className}Dao {
     /**
     * Load查询
     */
-    public ${classInfo.className} load(@Param("id") int id);
+    public ${classInfo.className} load(@Param("id") String id);
+
+    /**
+    * Load查询
+    */
+    public List<${classInfo.className}> getAll();
+
 
     /**
     * 分页查询Data

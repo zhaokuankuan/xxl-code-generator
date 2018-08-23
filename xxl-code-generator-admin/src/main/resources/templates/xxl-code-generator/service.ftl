@@ -8,24 +8,34 @@ import java.util.Map;
 public interface ${classInfo.className}Service {
 
     /**
+    * 新增或修改
+    */
+    public ReturnModel insertOrUpdate(${classInfo.className} ${classInfo.className?uncap_first});
+
+    /**
     * 新增
     */
-    public ReturnT<String> insert(${classInfo.className} ${classInfo.className?uncap_first});
+    public ReturnModel insert(${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
     * 删除
     */
-    public ReturnT<String> delete(int id);
+    public ReturnModel delete(String id);
 
     /**
     * 更新
     */
-    public ReturnT<String> update(${classInfo.className} ${classInfo.className?uncap_first});
+    public ReturnModel update(${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
     * 根据Id查询
     */
-    public ${classInfo.className} load(int id);
+    public ReturnModel load(String id);
+
+   /**
+    * 全部查询
+    */
+    public List<${classInfo.className}> getAll();
 
     /**
     * 分页查询

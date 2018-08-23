@@ -1,15 +1,4 @@
-<#if classInfo.fieldList?exists && classInfo.fieldList?size gt 0>
-    <#list classInfo.fieldList as fieldItem >
-        <#if fieldItem.fieldClass == "Date">
-            <#assign importDdate = true />
-        </#if>
-    </#list>
-</#if>
 import java.io.Serializable;
-<#if importDdate>
-import java.util.Date;
-</#if>
-
 /**
 * ${classInfo.classComment}
 * Created  by Mr.kk
