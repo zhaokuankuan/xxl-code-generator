@@ -6,7 +6,7 @@
     <groupId>com.xuxueli</groupId>
     <artifactId>xxl-code-generator</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
 
     <name>${project.artifactId}</name>
     <description>a distributed single-sign-on framework.</description>
@@ -88,68 +88,10 @@
         <connection>scm:git:https://github.com/xuxueli/xxl-conf.git</connection>
         <developerConnection>scm:git:git@github.com:xuxueli/xxl-conf.git</developerConnection>
     </scm>
-    <developers>
-        <developer>
-            <id>XXL</id>
-            <name>xuxueli</name>
-            <email>931591021@qq.com</email>
-            <url>https://github.com/xuxueli</url>
-        </developer>
-    </developers>
-
     <profiles>
 
         <profile>
             <id>release</id>
-            <build>
-                <plugins>
-                    <!-- Source -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- Javadoc -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                    <!-- GPG -->
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.6</version>
-                        <configuration>
-                            <useAgent>false</useAgent>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
             <distributionManagement>
                 <snapshotRepository>
                     <id>oss</id>

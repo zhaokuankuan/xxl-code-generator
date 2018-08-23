@@ -56,7 +56,7 @@
     <nav class="navbar navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="${request.contextPath}/" class="navbar-brand"><b>代码生成工具 Created by Mr.kk</b></a>
+                <a href="#" class="navbar-brand"><b>代码生成工具 Created by Mr.kk</b></a>
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
@@ -85,7 +85,7 @@
 <#macro commonFooter >
 <footer class="main-footer">
     <div class="container">
-        Powered by <b>许雪里 </b><a href="https://github.com/xuxueli/xxl-code-generator" target="_blank" >FROM Github</a>
+        Powered by <a href="https://github.com/xuxueli/xxl-code-generator" target="_blank" ><b> 许雪里</b></a> from Github
         <div class="pull-right hidden-xs">
             <strong>Copyright &copy; 2018-${.now?string('yyyy')} &nbsp;
                 <a href="http://www.struggling-bird.cn/" target="_blank" >zhaokuankuan</a>
