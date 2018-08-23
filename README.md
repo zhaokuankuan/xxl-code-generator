@@ -1,4 +1,4 @@
-代码生成平台
+代码生成平台(在开源的基础上的升级和定制，只限于个人使用不可商用)
         <br>
         <a href="http://www.xuxueli.com/xxl-code-generator/"><strong>-- Home Page --</strong></a>
       
