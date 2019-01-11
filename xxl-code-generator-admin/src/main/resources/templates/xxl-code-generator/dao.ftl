@@ -26,24 +26,24 @@ public interface ${classInfo.className}Dao {
     public int update(@Param("${classInfo.className?uncap_first}") ${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
-    * Load查询
+    * 根据id查询
     */
     public ${classInfo.className} load(@Param("id") String id);
 
     /**
-    * Load查询
+    * 全部查询
     */
     public List<${classInfo.className}> getAll();
 
 
     /**
-    * 分页查询Data
+    * 分页查询数据
     */
 	public List<${classInfo.className}> pageList(@Param("offset") int offset,
                                                  @Param("pagesize") int pagesize);
 
     /**
-    * 分页查询Count
+    * 分页查询总条数
     */
     public int pageListCount(@Param("offset") int offset,
                              @Param("pagesize") int pagesize);

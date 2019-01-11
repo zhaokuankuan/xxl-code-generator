@@ -51,15 +51,15 @@
 
     <update id="update" parameterType="java.util.Map" >
         UPDATE ${classInfo.tableName}
+         <set>
         <#list classInfo.fieldList as fieldItem >
         <#if fieldItem.columnName != "id" && fieldItem.columnName != "AddTime" && fieldItem.columnName != "UpdateTime" >
-        <set>
             <if test="${classInfo.className?uncap_first}.${fieldItem.fieldName} != null and ${classInfo.className?uncap_first}.${fieldItem.fieldName} != '' " >
                 ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"},
             </if>
-        </set>
         </#if>
         </#list>
+         </set>
         WHERE `id` = ${r"#{"}${classInfo.className?uncap_first}.id${r"}"}
     </update>
 

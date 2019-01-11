@@ -1,6 +1,6 @@
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,15 +14,15 @@ import java.util.Map;
 @Service
 public class ${classInfo.className}ServiceImpl implements ${classInfo.className}Service {
 
-	@Resource
+	@Autowired
 	private ${classInfo.className}Dao ${classInfo.className?uncap_first}Dao;
 
 	/**
     * 新增或修改
     */
 	@Override
-	public ReturnModel insertOrUpdate(${classInfo.className} ${classInfo.className?uncap_first}) {
-	  ReturnModel result = new ReturnModel();
+	public int insertOrUpdate(${classInfo.className} ${classInfo.className?uncap_first}) {
+	  int result = 0;
 	  if (${classInfo.className?uncap_first} == null) {
 	     return result;
 	  }
@@ -39,65 +39,32 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
     * 新增
     */
 	@Override
-	public ReturnModel insert(${classInfo.className} ${classInfo.className?uncap_first}) {
-      ReturnModel result = new ReturnModel();
-	  if (${classInfo.className?uncap_first} == null) {
-	     result.addDefaultModel("404","必要参数缺失");
-		 return result;
-	  }
-	  ${classInfo.className?uncap_first}Dao.insert(${classInfo.className?uncap_first});
-	  result.setSuccess(true);
-	  return result;
+	public int insert(${classInfo.className} ${classInfo.className?uncap_first}) {
+	  return ${classInfo.className?uncap_first}Dao.insert(${classInfo.className?uncap_first});
 	}
 
 	/**
 	* 删除
 	*/
 	@Override
-	public ReturnModel delete(String id) {
-      ReturnModel result = new ReturnModel();
-	  if(null == id || "".equals(id)){
- 	 	result.setMsg("id不能为空！");
-		return result;
-	  }
-	  int ret = ${classInfo.className?uncap_first}Dao.delete(id);
-	  if(ret > 0){
-		result.setSuccess(true);
-		return  result;
-	  }else{
-		return  result;
-	  }
+	public int delete(String id) {
+	  return ${classInfo.className?uncap_first}Dao.delete(id);
 	}
 
 	/**
 	* 修改
 	*/
 	@Override
-	public ReturnModel update(${classInfo.className} ${classInfo.className?uncap_first}) {
-      ReturnModel result = new ReturnModel();
-	  int ret = ${classInfo.className?uncap_first}Dao.update(${classInfo.className?uncap_first});
-	  if(ret > 0){
-		result.setSuccess(true);
-		return  result;
-	  }else{
-		return  result;
-	  }
+	public int update(${classInfo.className} ${classInfo.className?uncap_first}) {
+	  return ${classInfo.className?uncap_first}Dao.update(${classInfo.className?uncap_first});
 	}
 
 	/**
 	* 根据Id查询
 	*/
 	@Override
-	public ReturnModel load(String id) {
- 	  ReturnModel result = new ReturnModel();
- 	  if(null == id || "".equals(id)){
- 	 	result.setMsg("id不能为空！");
-		return result;
-	  }
-	  ${classInfo.className} ${classInfo.className?uncap_first} = ${classInfo.className?uncap_first}Dao.load(id);
- 	  result.addDefaultModel("value",${classInfo.className?uncap_first});
-	  result.setSuccess(true);
-	  return result;
+	public ${classInfo.className} load(String id) {
+	  return ${classInfo.className?uncap_first}Dao.load(id);
 	}
 
  	/**
@@ -113,13 +80,13 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	*/
 	@Override
 	public Map<String,Object> pageList(int offset, int pagesize) {
+      Map<String, Object> map = new HashMap<String, Object>();
 	  List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize);
 	  int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize);
 	  // 分页查询的数据的返回
-	  Map<String, Object> result = new HashMap<String, Object>();
-	  result.put("pageList", pageList);
-	  result.put("totalCount", totalCount);
-	  return result;
+	  map.put("pageList", pageList);
+	  map.put("totalCount", totalCount);
+	  return map;
 	}
 
 }

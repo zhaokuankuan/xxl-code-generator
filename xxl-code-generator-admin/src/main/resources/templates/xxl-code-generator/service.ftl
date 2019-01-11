@@ -1,5 +1,5 @@
 import java.util.Map;
-
+import java.util.List;
 /**
 * ${classInfo.classComment}
 * Created  by Mr.kk
@@ -10,27 +10,27 @@ public interface ${classInfo.className}Service {
     /**
     * 新增或修改
     */
-    public ReturnModel insertOrUpdate(${classInfo.className} ${classInfo.className?uncap_first});
+    public int insertOrUpdate(${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
     * 新增
     */
-    public ReturnModel insert(${classInfo.className} ${classInfo.className?uncap_first});
+    public int insert(${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
     * 删除
     */
-    public ReturnModel delete(String id);
+    public int delete(String id);
 
     /**
     * 更新
     */
-    public ReturnModel update(${classInfo.className} ${classInfo.className?uncap_first});
+    public int update(${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
     * 根据Id查询
     */
-    public ReturnModel load(String id);
+    public ${classInfo.className} load(String id);
 
    /**
     * 全部查询

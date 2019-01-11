@@ -60,7 +60,6 @@ public class IndexController {
             result.put("dao_code", freemarkerTool.processString("xxl-code-generator/dao.ftl", params));
             result.put("mybatis_code", freemarkerTool.processString("xxl-code-generator/mybatis.ftl", params));
             result.put("model_code", freemarkerTool.processString("xxl-code-generator/model.ftl", params));
-
             // 计算,生成代码行数
             int lineNum = 0;
             for (Map.Entry<String, String> item: result.entrySet()) {
