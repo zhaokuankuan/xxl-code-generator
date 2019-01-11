@@ -84,7 +84,7 @@ public class ${classInfo.className}Controller {
     public ReturnModel getAll(HttpServletRequest request,${classInfo.className} ${classInfo.className?uncap_first}){
       List<${classInfo.className}> list =  ${classInfo.className?uncap_first}Service.getAll(${classInfo.className?uncap_first});
       if(null!=list && list.size()>0){
-        return new ReturnModel(ReturnModel.SUCCESS,"success",list);
+        return new ReturnModel(ReturnModel.SUCCESS,"数据为空",list);
       }else{
         return new ReturnModel(ReturnModel.SUCCESS,"success",list);
       }
