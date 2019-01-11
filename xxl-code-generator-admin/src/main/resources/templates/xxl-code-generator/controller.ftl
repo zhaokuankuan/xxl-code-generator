@@ -81,8 +81,8 @@ public class ${classInfo.className}Controller {
     */
     @ApiOperation(value = "全部查询",notes = "全部查询")
     @GetMapping(value="/${classInfo.className?uncap_first}/getAll")
-    public ReturnModel getAll(HttpServletRequest request){
-      List<${classInfo.className}> list =  ${classInfo.className?uncap_first}Service.getAll();
+    public ReturnModel getAll(HttpServletRequest request,${classInfo.className} ${classInfo.className?uncap_first}){
+      List<${classInfo.className}> list =  ${classInfo.className?uncap_first}Service.getAll(${classInfo.className?uncap_first});
       if(null!=list && list.size()>0){
         return new ReturnModel(ReturnModel.SUCCESS,"success",list);
       }else{
@@ -96,9 +96,10 @@ public class ${classInfo.className}Controller {
     @ApiOperation(value = "分页查询",notes = "分页查询")
     @GetMapping(value="/${classInfo.className?uncap_first}/getByPageList")
     public ReturnModel pageList(HttpServletRequest request,
+                        ${classInfo.className} ${classInfo.className?uncap_first},
                         @RequestParam(required = false, defaultValue = "0") int offset,
                         @RequestParam(required = false, defaultValue = "10") int pagesize) {
-      Object obj =  ${classInfo.className?uncap_first}Service.pageList(offset, pagesize);
+      Object obj =  ${classInfo.className?uncap_first}Service.pageList(offset, pagesize,${classInfo.className?uncap_first});
       if(null!=obj){
         return new ReturnModel(ReturnModel.SUCCESS,"success",obj);
       }else{

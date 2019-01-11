@@ -70,8 +70,8 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
  	/**
     * 全部查询
     */
-    public List<${classInfo.className}> getAll(){
-		List<${classInfo.className}> list = ${classInfo.className?uncap_first}Dao.getAll();
+    public List<${classInfo.className}> getAll(${classInfo.className} ${classInfo.className?uncap_first}){
+		List<${classInfo.className}> list = ${classInfo.className?uncap_first}Dao.getAll(${classInfo.className?uncap_first});
 		return list;
 	};
 
@@ -81,8 +81,8 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	@Override
 	public Map<String,Object> pageList(int offset, int pagesize) {
       Map<String, Object> map = new HashMap<String, Object>();
-	  List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize);
-	  int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize);
+	  List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize,${classInfo.className} ${classInfo.className?uncap_first});
+	  int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize,${classInfo.className} ${classInfo.className?uncap_first});
 	  // 分页查询的数据的返回
 	  map.put("pageList", pageList);
 	  map.put("totalCount", totalCount);

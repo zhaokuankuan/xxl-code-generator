@@ -68,6 +68,14 @@
         SELECT
         <include refid="Base_Column_List" />
         FROM ${classInfo.tableName}
+        <where>
+         <#list classInfo.fieldList as fieldItem >
+          <if test="${classInfo.className?uncap_first}.${fieldItem.fieldName} != null and ${classInfo.className?uncap_first}.${fieldItem.fieldName} != '' " >
+            ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"} AND
+          </if>
+         </#list>
+            1=1
+        </where>
     </select>
 
     <select id="load" parameterType="java.util.Map" resultMap="${classInfo.className}">
@@ -79,12 +87,28 @@
     <select id="pageList" parameterType="java.util.Map" resultMap="${classInfo.className}">
         SELECT <include refid="Base_Column_List" />
         FROM ${classInfo.tableName}
+        <where>
+         <#list classInfo.fieldList as fieldItem >
+          <if test="${classInfo.className?uncap_first}.${fieldItem.fieldName} != null and ${classInfo.className?uncap_first}.${fieldItem.fieldName} != '' " >
+            ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"} AND
+          </if>
+         </#list>
+            1=1
+        </where>
         LIMIT ${r"#{offset}"}, ${r"#{pagesize}"}
     </select>
 
     <select id="pageListCount" parameterType="java.util.Map" resultType="int">
         SELECT count(1)
         FROM ${classInfo.tableName}
+        <where>
+         <#list classInfo.fieldList as fieldItem >
+          <if test="${classInfo.className?uncap_first}.${fieldItem.fieldName} != null and ${classInfo.className?uncap_first}.${fieldItem.fieldName} != '' " >
+            ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"} AND
+          </if>
+         </#list>
+            1=1
+        </where>
     </select>
 
 </mapper>

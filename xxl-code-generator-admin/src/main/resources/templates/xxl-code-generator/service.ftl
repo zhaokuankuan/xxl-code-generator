@@ -35,11 +35,11 @@ public interface ${classInfo.className}Service {
    /**
     * 全部查询
     */
-    public List<${classInfo.className}> getAll();
+    public List<${classInfo.className}> getAll(${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
     * 分页查询
     */
-    public Map<String,Object> pageList(int offset, int pagesize);
+    public Map<String,Object> pageList(int offset, int pagesize,${classInfo.className} ${classInfo.className?uncap_first});
 
 }

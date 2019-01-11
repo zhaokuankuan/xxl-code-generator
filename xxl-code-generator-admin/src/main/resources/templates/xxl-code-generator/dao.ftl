@@ -1,6 +1,4 @@
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 /**
@@ -33,19 +31,21 @@ public interface ${classInfo.className}Dao {
     /**
     * 全部查询
     */
-    public List<${classInfo.className}> getAll();
+    public List<${classInfo.className}> getAll(@Param("${classInfo.className?uncap_first}")${classInfo.className} ${classInfo.className?uncap_first});
 
 
     /**
     * 分页查询数据
     */
 	public List<${classInfo.className}> pageList(@Param("offset") int offset,
-                                                 @Param("pagesize") int pagesize);
+                             @Param("pagesize") int pagesize,
+                             @Param("${classInfo.className?uncap_first}")${classInfo.className} ${classInfo.className?uncap_first});
 
     /**
     * 分页查询总条数
     */
     public int pageListCount(@Param("offset") int offset,
-                             @Param("pagesize") int pagesize);
+                             @Param("pagesize") int pagesize,
+                             @Param("${classInfo.className?uncap_first}")${classInfo.className} ${classInfo.className?uncap_first});
 
 }
