@@ -81,6 +81,7 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	@Override
 	public Map<String,Object> pageList(int offset, int pagesize,${classInfo.className} ${classInfo.className?uncap_first}) {
       Map<String, Object> map = new HashMap<String, Object>();
+      offset=offset==0?0:(offset)*pagesize;
 	  List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize,${classInfo.className?uncap_first});
 	  int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize,${classInfo.className?uncap_first});
 	  // 分页查询的数据的返回
