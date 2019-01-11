@@ -79,10 +79,10 @@ public class ${classInfo.className}ServiceImpl implements ${classInfo.className}
 	* 分页查询
 	*/
 	@Override
-	public Map<String,Object> pageList(int offset, int pagesize) {
+	public Map<String,Object> pageList(int offset, int pagesize,${classInfo.className} ${classInfo.className?uncap_first}) {
       Map<String, Object> map = new HashMap<String, Object>();
-	  List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize,${classInfo.className} ${classInfo.className?uncap_first});
-	  int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize,${classInfo.className} ${classInfo.className?uncap_first});
+	  List<${classInfo.className}> pageList = ${classInfo.className?uncap_first}Dao.pageList(offset, pagesize,${classInfo.className?uncap_first});
+	  int totalCount = ${classInfo.className?uncap_first}Dao.pageListCount(offset, pagesize,${classInfo.className?uncap_first});
 	  // 分页查询的数据的返回
 	  map.put("pageList", pageList);
 	  map.put("totalCount", totalCount);

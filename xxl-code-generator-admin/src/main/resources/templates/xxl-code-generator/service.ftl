@@ -23,7 +23,7 @@ public interface ${classInfo.className}Service {
     public int delete(String id);
 
     /**
-    * 更新
+    * 修改
     */
     public int update(${classInfo.className} ${classInfo.className?uncap_first});
 

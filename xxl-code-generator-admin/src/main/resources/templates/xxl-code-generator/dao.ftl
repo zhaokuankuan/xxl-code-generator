@@ -19,7 +19,7 @@ public interface ${classInfo.className}Dao {
     public int delete(@Param("id") String id);
 
     /**
-    * 更新
+    * 修改
     */
     public int update(@Param("${classInfo.className?uncap_first}") ${classInfo.className} ${classInfo.className?uncap_first});
 
