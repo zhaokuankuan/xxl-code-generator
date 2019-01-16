@@ -1,6 +1,5 @@
 import org.springframework.stereotype.Service;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.Map;
 @Service
 public class ${classInfo.className}ServiceImpl implements ${classInfo.className}Service {
 
-	@Autowired
+	@Resource
 	private ${classInfo.className}Dao ${classInfo.className?uncap_first}Dao;
 
 	/**

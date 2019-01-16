@@ -76,6 +76,7 @@
          </#list>
             1=1
         </where>
+        ORDER BY id DESC
     </select>
 
     <select id="load" parameterType="java.util.Map" resultMap="${classInfo.className}">
@@ -95,6 +96,7 @@
          </#list>
             1=1
         </where>
+        ORDER BY id DESC
         LIMIT ${r"#{offset}"}, ${r"#{pagesize}"}
     </select>
 
