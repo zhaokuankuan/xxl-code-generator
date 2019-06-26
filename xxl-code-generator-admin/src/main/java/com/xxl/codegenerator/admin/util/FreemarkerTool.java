@@ -53,7 +53,10 @@ public class FreemarkerTool {
      */
     public String processString(String templateName, Map<String, Object> params)
             throws IOException, TemplateException {
-
+        //设置Classic Compatibile，字段值为空时，正常转换。
+        //此模式也会有其他的bug
+        //设置了全局的classic_compatible属性，而在某个页面上又不想遵守这个属性该怎么办呢？这样就可以在当前这个页面上采用以下的办法，让当前的页面不再支持传统模式：<#setting classic_compatible=false>
+        configuration.setClassicCompatible(true);
         Template template = configuration.getTemplate(templateName);
         String htmlText = processTemplateIntoString(template, params);
         return htmlText;

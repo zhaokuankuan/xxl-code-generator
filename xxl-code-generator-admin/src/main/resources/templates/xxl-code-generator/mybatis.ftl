@@ -74,7 +74,6 @@
             ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"} AND
           </if>
          </#list>
-            1=1
         </where>
         ORDER BY id DESC
     </select>
@@ -91,10 +90,9 @@
         <where>
          <#list classInfo.fieldList as fieldItem >
           <if test="${classInfo.className?uncap_first}.${fieldItem.fieldName} != null and ${classInfo.className?uncap_first}.${fieldItem.fieldName} != '' " >
-            ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"} AND
+              AND ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"}
           </if>
          </#list>
-            1=1
         </where>
         ORDER BY id DESC
         LIMIT ${r"#{offset}"}, ${r"#{pagesize}"}
@@ -106,10 +104,9 @@
         <where>
          <#list classInfo.fieldList as fieldItem >
           <if test="${classInfo.className?uncap_first}.${fieldItem.fieldName} != null and ${classInfo.className?uncap_first}.${fieldItem.fieldName} != '' " >
-            ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"} AND
+              AND ${fieldItem.columnName} = ${r"#{"}${classInfo.className?uncap_first}.${fieldItem.fieldName}${r"}"}
           </if>
          </#list>
-            1=1
         </where>
     </select>
 

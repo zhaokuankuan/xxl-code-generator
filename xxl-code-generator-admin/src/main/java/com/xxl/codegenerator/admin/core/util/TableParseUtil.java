@@ -72,7 +72,8 @@ public class TableParseUtil {
         while(matcher.find()){
 
             String commentTmp = matcher.group();
-            commentTmp = commentTmp.replaceAll("\\ COMMENT '|\\'", "");      // "\\{|\\}"
+            //COMMENT中有,()时，有此行代码，执行失败
+            //commentTmp = commentTmp.replaceAll("\\ COMMENT '|\\'", "");      // "\\{|\\}"
 
             if (commentTmp.contains(",")) {
                 String commentTmpFinal = commentTmp.replaceAll(",", "，");
